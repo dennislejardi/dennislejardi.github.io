@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Atlas Cowork production pipeline</title>
+  <desc id="desc">A flow from discover to research, select, author, prepare, produce, verify, release, and learn.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#120e25"/><stop offset="1" stop-color="#102331"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#a68cff"/><stop offset="1" stop-color="#5ce1c5"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="300" rx="26" fill="url(#bg)"/>
+  <text x="54" y="58" fill="#f7f4ff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="26" font-weight="700">Evidence moves forward. Uncertainty stops safely.</text>
+  <path d="M85 151H1115" stroke="url(#line)" stroke-width="5" stroke-linecap="round" filter="url(#glow)"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" text-anchor="middle">
+    <g transform="translate(90 151)"><circle r="18" fill="#9b8cff"/><text y="52" fill="#d8d3ea">Discover</text></g>
+    <g transform="translate(220 151)"><circle r="18" fill="#958fff"/><text y="52" fill="#d8d3ea">Research</text></g>
+    <g transform="translate(350 151)"><circle r="18" fill="#889cff"/><text y="52" fill="#d8d3ea">Select</text></g>
+    <g transform="translate(480 151)"><circle r="18" fill="#78aff5"/><text y="52" fill="#d8d3ea">Author</text></g>
+    <g transform="translate(610 151)"><circle r="25" fill="#172a3c" stroke="#67c1e7" stroke-width="4"/><path d="M600 151l7 7 14-17" fill="none" stroke="#67c1e7" stroke-width="4"/><text y="57" fill="#9fe8f0" font-weight="700">Preflight</text></g>
+    <g transform="translate(740 151)"><circle r="18" fill="#62cbdc"/><text y="52" fill="#d8d3ea">Produce</text></g>
+    <g transform="translate(870 151)"><circle r="25" fill="#173634" stroke="#5ce1c5" stroke-width="4"/><path d="M860 151l7 7 14-17" fill="none" stroke="#5ce1c5" stroke-width="4"/><text y="57" fill="#8ef0d9" font-weight="700">Release gate</text></g>
+    <g transform="translate(1000 151)"><circle r="18" fill="#5ce1c5"/><text y="52" fill="#d8d3ea">Publish</text></g>
+    <g transform="translate(1110 151)"><circle r="18" fill="#76dcb6"/><text y="52" fill="#d8d3ea">Learn</text></g>
+  </g>
+  <text x="600" y="270" text-anchor="middle" fill="#8c98b6" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15">Versioned artifacts · provenance · hashes · explicit failures · human approval</text>
+</svg>

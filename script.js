@@ -10,6 +10,8 @@ const projects = {
     evidence: ["A working iOS release candidate", "Personalized officials and legislative activity", "Every important claim links back to a source", "Tested screenshots and a complete submission package"],
     stack: ["React Native", "Expo", "Node.js", "PostgreSQL", "Civic APIs", "iOS"],
     note: "This project pushed me to think about trust at every layer: what the app says, where the information came from, and how clearly it explains what it does not know yet.",
+    metrics: [["71", "connector assertions"], ["3", "government levels"], ["iOS", "release candidate"]],
+    caseStudy: "pluribus.html",
     image: "assets/images/pluribus.png",
     imageAlt: "Pluribus mobile home screen showing officials and legislative activity"
   },
@@ -23,7 +25,9 @@ const projects = {
     ownership: ["Designed the workflow from topic idea to finished video", "Built the research, sourcing, rendering, and quality-check tools", "Added clear failure messages and safe ways to retry work", "Connected performance data back to future topic choices"],
     evidence: ["A complete daily workflow with a clear result", "Source records for factual claims and media", "Checks before production and again on the final video", "Automated tests and safeguards against duplicate work"],
     stack: ["Python", "JSON schemas", "FFmpeg", "Local ML", "Automation", "Testing"],
-    note: "This is less about ‘AI making videos’ and more about building a reliable production line around tools and inputs that are not always reliable."
+    note: "This is less about ‘AI making videos’ and more about building a reliable production line around tools and inputs that are not always reliable.",
+    metrics: [["7", "production stages"], ["2", "release gates"], ["9", "test modules"]],
+    caseStudy: "atlas-cowork.html"
   },
   army: {
     number: "03",
@@ -36,6 +40,8 @@ const projects = {
     evidence: ["A full menu → run → boss → result → retry loop", "Several leaders, weapons, recruits, and upgrades", "A custom check for broken progression content", "Compiled, built, launched, and played on a real build"],
     stack: ["Unity", "C#", "2D physics", "Mobile UX", "Local saves", "Validation tooling"],
     note: "I wanted the game to feel complete in one short run, so I treated the menu, pacing, progression, boss fight, and replay loop as one connected experience.",
+    metrics: [["8 min", "complete run"], ["3", "enemy archetypes"], ["2", "boss patterns"]],
+    caseStudy: "army-survivors.html",
     image: "assets/images/army.png",
     imageAlt: "Pixel-art operative from Army Survivors"
   },
@@ -50,6 +56,8 @@ const projects = {
     evidence: ["A complete launch → flight → garage → retry loop", "Random courses that keep the same readable rules", "EditMode tests and a PlayMode smoke test", "A clean, validated standalone build"],
     stack: ["Unity", "C#", "2D physics", "Procedural systems", "EditMode", "PlayMode"],
     note: "The fun came from keeping the controls small and spending the time on feel: launch timing, collisions, readable obstacles, rewards, and the urge to take one more run.",
+    metrics: [["4", "launch machines"], ["10", "upgrade tracks"], ["2", "test modes"]],
+    caseStudy: "rivets-junkyard-flight.html",
     image: "assets/images/rivet.png",
     imageAlt: "Rivet, a raccoon wearing an orange crash helmet"
   }
@@ -60,6 +68,10 @@ const tabs = [...document.querySelectorAll("[data-project]")];
 
 function list(items) {
   return items.map((item) => `<li>${item}</li>`).join("");
+}
+
+function metrics(items) {
+  return items.map(([value, label]) => `<div><strong>${value}</strong><span>${label}</span></div>`).join("");
 }
 
 function visual(id, project) {
@@ -85,7 +97,9 @@ function renderProject(id) {
     <h3>${project.name}</h3><p class="panel-headline">${project.headline}</p><p class="panel-summary">${project.summary}</p>
     <div class="evidence-grid"><div><h4>What I owned</h4><ul>${list(project.ownership)}</ul></div><div><h4>Proof it works</h4><ul>${list(project.evidence)}</ul></div></div>
     <ul class="tags" aria-label="${project.name} technologies">${list(project.stack)}</ul>
+    <div class="project-proof" aria-label="${project.name} project facts">${metrics(project.metrics)}</div>
     <div class="takeaway"><span>WHAT THIS PROJECT TAUGHT ME</span><p>${project.note}</p></div>
+    <a class="project-link" href="${project.caseStudy}">Read the full case study <span aria-hidden="true">→</span></a>
   </div>${visual(id, project)}`;
 
   tabs.forEach((tab) => {
@@ -95,5 +109,20 @@ function renderProject(id) {
   });
 }
 
-tabs.forEach((tab) => tab.addEventListener("click", () => renderProject(tab.dataset.project)));
-renderProject("pluribus");
+function projectFromHash() {
+  const match = window.location.hash.match(/^#project-(pluribus|atlas|army|rivet)$/);
+  return match ? match[1] : null;
+}
+
+tabs.forEach((tab) => tab.addEventListener("click", () => {
+  const id = tab.dataset.project;
+  renderProject(id);
+  history.replaceState(null, "", `#project-${id}`);
+}));
+
+window.addEventListener("hashchange", () => {
+  const id = projectFromHash();
+  if (id) renderProject(id);
+});
+
+renderProject(projectFromHash() || "pluribus");
