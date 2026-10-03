@@ -3,14 +3,14 @@ const projects = {
     number: "01",
     name: "Pluribus",
     kind: "Mobile civic product",
-    status: "iOS release candidate",
+    status: "Submitted for App Store review",
     headline: "A clearer way to follow the government decisions that affect you.",
     summary: "Pluribus is a mobile app that brings your representatives, bills, elections, and official sources into one place. I built it because civic information is public, but it is often scattered across sites that are hard to follow.",
-    ownership: ["Worked out the product and mobile experience", "Built the React Native app and its main flows", "Designed a consistent model for several civic data sources", "Prepared the app for App Store review"],
-    evidence: ["A working iOS release candidate", "Personalized officials and legislative activity", "Every important claim links back to a source", "Tested screenshots and a complete submission package"],
+    ownership: ["Worked out the product and mobile experience", "Built the React Native app and its main flows", "Designed a consistent model for several civic data sources", "Submitted build 28 for App Store review"],
+    evidence: ["Build 28 waiting for App Store review", "Personalized officials and legislative activity", "Every important claim links back to a source", "Tested screenshots and a complete submission package"],
     stack: ["React Native", "Expo", "Node.js", "PostgreSQL", "Civic APIs", "iOS"],
     note: "This project pushed me to think about trust at every layer: what the app says, where the information came from, and how clearly it explains what it does not know yet.",
-    metrics: [["71", "connector assertions"], ["3", "government levels"], ["iOS", "release candidate"]],
+    metrics: [["71", "connector assertions"], ["3", "government levels"], ["Build 28", "waiting for review"]],
     caseStudy: "pluribus.html",
     image: "assets/images/pluribus.png",
     imageAlt: "Pluribus mobile home screen showing officials and legislative activity"
@@ -117,12 +117,17 @@ function projectFromHash() {
 tabs.forEach((tab) => tab.addEventListener("click", () => {
   const id = tab.dataset.project;
   renderProject(id);
-  history.replaceState(null, "", `#project-${id}`);
+  history.pushState({ project: id }, "", `#project-${id}`);
 }));
 
-window.addEventListener("hashchange", () => {
+function restoreProjectFromHistory() {
   const id = projectFromHash();
-  if (id) renderProject(id);
-});
+  renderProject(id || "pluribus");
+  if (id) document.querySelector("#work").scrollIntoView();
+}
 
-renderProject(projectFromHash() || "pluribus");
+window.addEventListener("popstate", restoreProjectFromHistory);
+
+const initialProject = projectFromHash();
+renderProject(initialProject || "pluribus");
+if (initialProject) requestAnimationFrame(() => document.querySelector("#work").scrollIntoView());
