@@ -7,6 +7,7 @@
     <meta name="description" content="Data engineering manager who finds where data can move the business, sets the roadmap, and ships it. Snowflake, dbt, customer data, and applied AI." />
     <link rel="canonical" href="https://dennislejardi.github.io/" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#050b16" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Dennis Lejardi — Data Engineering Manager" />
     <meta property="og:description" content="I find where data can move the business. Then I ship it. Snowflake, dbt, customer data, and applied AI." />
@@ -17,6 +18,25 @@
     <meta name="twitter:description" content="I find where data can move the business. Then I ship it. Snowflake, dbt, customer data, and applied AI." />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dennis Lejardi",
+      "jobTitle": "Manager, MarTech Data Engineering",
+      "worksFor": { "@type": "Organization", "name": "Norwegian Cruise Line Holdings" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Miami", "addressRegion": "FL", "addressCountry": "US" },
+      "email": "mailto:dennislejardi@gmail.com",
+      "url": "https://dennislejardi.github.io/",
+      "image": "https://dennislejardi.github.io/assets/og.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/dennis-lejardi-8a352b96/",
+        "https://github.com/dennislejardi",
+        "https://apps.apple.com/us/app/pluribus-civic-engagement/id6763580814"
+      ],
+      "knowsAbout": ["Snowflake", "dbt", "Data engineering", "Customer data platforms", "Applied AI"]
+    }
+    </script>
   </head>
   <body>
     <main>
@@ -25,7 +45,7 @@
           <span class="mark">DL</span><span>DENNIS LEJARDI</span><span class="wordmark-muted">DATA ENGINEERING MANAGER</span>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#experience">Experience</a><a href="#work">Projects</a><a href="#ownership">Approach</a><a class="nav-resume" href="assets/Dennis-Lejardi-Resume.pdf" download>Résumé</a><a href="mailto:dennislejardi@gmail.com">Contact</a>
+          <a href="#experience">Experience</a><a href="#work">Projects</a><a href="#ownership">Leadership</a><a class="nav-resume" href="assets/Dennis-Lejardi-Resume.pdf" download>Résumé</a><a href="mailto:dennislejardi@gmail.com">Contact</a>
         </nav>
       </header>
 
@@ -75,7 +95,7 @@
 
       <section class="work shell" id="work">
         <div class="section-intro">
-          <p class="section-label">02 / SELECTED WORK</p>
+          <p class="section-label">02 / PROJECTS</p>
           <div><h2>Things I’ve built and shipped.</h2><p>Outside work I build products end to end: scope, data model, app, testing, and release. Pluribus is live on the App Store.</p></div>
         </div>
 
@@ -84,36 +104,27 @@
             <button id="project-pluribus" role="tab" aria-selected="true" aria-controls="project-panel" class="active" data-project="pluribus"><span class="tab-number">01</span><span class="tab-name">Pluribus<small>Civic data product · live</small></span><span class="tab-arrow" aria-hidden="true">→</span></button>
             <button id="project-atlas" role="tab" aria-selected="false" aria-controls="project-panel" data-project="atlas"><span class="tab-number">02</span><span class="tab-name">Atlas Cowork<small>Data pipeline with release gates</small></span><span class="tab-arrow" aria-hidden="true">→</span></button>
           </div>
-          <article class="project-panel" id="project-panel" role="tabpanel" aria-live="polite"><div class="panel-copy">
-    <div class="panel-meta"><span>Civic data product</span><span class="status-pill">Live on the App Store</span></div>
-    <h3>Pluribus</h3><p class="panel-headline">Follow the government decisions that affect you, with a source behind every claim.</p><p class="panel-summary">Pluribus brings Miami-Dade residents’ representatives, bills, ballots, and elections into one app built on official sources. I designed the product, built the app, and built the data pipelines that pull and reconcile civic data from several providers.</p>
-    <div class="evidence-grid"><div><h4>What I owned</h4><ul><li>Defined the product and chose a deep Florida and Miami-Dade first release over thin national coverage</li><li>Built the React Native (Expo) app and its main flows</li><li>Built GraphQL ingestion of ballot and legislative data and an incremental-sync bill importer as Supabase edge functions</li><li>Took it through App Store review to launch</li></ul></div><div><h4>Proof it works</h4><ul><li>Live and free on the App Store</li><li>Records keep their source and retrieval date</li><li>Bills sync incrementally from official sources</li><li>Several civic providers reconciled, none treated as the permanent source of truth</li></ul></div></div>
-    <ul class="tags" aria-label="Pluribus technologies"><li>React Native</li><li>Expo</li><li>Supabase</li><li>Postgres</li><li>PostGIS</li><li>GraphQL</li><li>Edge functions</li><li>iOS</li></ul>
-    <div class="project-proof" aria-label="Pluribus project facts"><div><strong>Live</strong><span>on the App Store</span></div><div><strong>3</strong><span>government levels</span></div><div><strong>Free</strong><span>on iPhone</span></div></div>
-    <div class="takeaway"><span>WHAT THIS PROJECT TAUGHT ME</span><p>This project pushed me to think about trust at every layer: what the app says, where the information came from, and how clearly it explains what it does not know yet.</p></div>
-    <div class="project-links"><a class="project-link" href="pluribus.html">Read the full case study <span aria-hidden="true">→</span></a><a class="project-link" href="https://apps.apple.com/us/app/pluribus-civic-engagement/id6763580814" target="_blank" rel="noreferrer">Get it on the App Store <span aria-hidden="true">↗</span></a></div>
-  </div><div class="project-visual visual-pluribus">
-    <div class="visual-label"><span>PRODUCT VIEW</span><span>01 / 02</span></div>
-    <div class="blueprint-ring" aria-hidden="true"></div>
-    <img src="assets/images/pluribus.png" alt="Pluribus mobile home screen showing officials and legislative activity" />
-  </div></article>
+          <!-- Panel content is rendered by script.js from a single project definition. -->
+          <article class="project-panel" id="project-panel" role="tabpanel">
+            <noscript><div class="panel-copy"><h3>Pluribus</h3><p class="panel-summary">Enable JavaScript to browse projects here, or open the case studies directly: <a href="pluribus.html">Pluribus</a> · <a href="atlas-cowork.html">Atlas Cowork</a>.</p></div></noscript>
+          </article>
         </div>
 
         <div class="also-built" aria-label="Also built">
           <p class="section-label">ALSO BUILT</p>
           <div class="also-grid">
-            <a class="also-card" href="army-survivors.html"><img src="assets/images/army.png" alt="" loading="lazy" /><div><strong>Army Survivors</strong><span>An eight-minute Unity action game with automated content checks and a validated build.</span></div><b aria-hidden="true">→</b></a>
-            <a class="also-card" href="rivets-junkyard-flight.html"><img src="assets/images/rivet.png" alt="" loading="lazy" /><div><strong>Rivet’s Junkyard Flight</strong><span>A Unity physics game with procedural courses and EditMode and PlayMode tests.</span></div><b aria-hidden="true">→</b></a>
+            <a class="also-card" href="army-survivors.html"><img src="assets/images/army.webp" alt="" width="240" height="360" loading="lazy" /><div><strong>Army Survivors</strong><span>An eight-minute Unity action game with automated content checks and a validated build.</span></div><b aria-hidden="true">→</b></a>
+            <a class="also-card" href="rivets-junkyard-flight.html"><img src="assets/images/rivet.webp" alt="" width="240" height="200" loading="lazy" /><div><strong>Rivet’s Junkyard Flight</strong><span>A Unity physics game with procedural courses and EditMode and PlayMode tests.</span></div><b aria-hidden="true">→</b></a>
           </div>
         </div>
       </section>
 
       <section class="ownership shell" id="ownership">
         <div class="section-intro">
-          <p class="section-label">03 / HOW I LEAD</p>
+          <p class="section-label">03 / LEADERSHIP</p>
           <div><h2>How I lead.</h2><p>My best work starts with a business question and ends with something running that we can measure.</p></div>
         </div>
-        <div class="capability-grid four">
+        <div class="capability-grid">
           <article><span>SPOT</span><h3>Find the opportunity</h3><p>I look for where data can change a decision, then pick a first version small enough to ship and clear enough to measure.</p><small>Opportunity sizing · experimentation · roadmapping</small></article>
           <article><span>PLAN</span><h3>Lay out the roadmap</h3><p>I plan current and future work together, including the data we’ll need and the tech debt we’ll pay down.</p><small>Roadmaps · architecture · tech-debt planning</small></article>
           <article><span>SHIP</span><h3>Make quality a release decision</h3><p>I set gates, test real flows, and make failures clear enough to fix.</p><small>Release gates · QA · observability</small></article>

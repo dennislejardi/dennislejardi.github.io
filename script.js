@@ -13,7 +13,7 @@ const projects = {
     metrics: [["Live", "on the App Store"], ["3", "government levels"], ["Free", "on iPhone"]],
     caseStudy: "pluribus.html",
     appStore: "https://apps.apple.com/us/app/pluribus-civic-engagement/id6763580814",
-    image: "assets/images/pluribus.png",
+    image: "assets/images/pluribus.webp",
     imageAlt: "Pluribus mobile home screen showing officials and legislative activity"
   },
   atlas: {
@@ -25,7 +25,7 @@ const projects = {
     summary: "Atlas runs a science content channel end to end: research, fact and source checks, media, rendering, final-file checks, and scheduling. It is built like a data pipeline: structured handoffs between stages, provenance for every claim and asset, safe retries, and two release gates that stop the line when evidence is missing. I designed the stages, records, and gates, and built it with AI-assisted development.",
     ownership: ["Designed the seven-stage workflow and the records passed between stages", "Built the research, sourcing, rendering, and quality-check steps", "Added failure codes, resumable jobs, and protection against duplicate publishing", "Fed performance data back into topic choices, with a person approving any policy change"],
     evidence: ["A complete daily workflow with a clear pass or fail result", "Source records for factual claims and media", "Checks before production and again on the final file", "Automated tests and safeguards against duplicate work"],
-    stack: ["Workflow design", "JSON schemas", "Release gates", "Python (AI-assisted)", "FFmpeg", "Scheduled jobs", "Automated tests"],
+    stack: ["Workflow design", "JSON schemas", "Release gates", "Python", "FFmpeg", "Scheduled jobs", "Automated tests"],
     note: "The best automation is not merely fast. It makes failures legible, keeps bad state from moving forward, and gives a person enough evidence to make a confident release decision.",
     metrics: [["7", "production stages"], ["2", "release gates"], ["9", "test modules"]],
     caseStudy: "atlas-cowork.html"
@@ -54,7 +54,7 @@ function visual(id, project) {
   return `<div class="project-visual visual-${id}">
     <div class="visual-label"><span>PRODUCT VIEW</span><span>${project.number} / ${String(projectIds.length).padStart(2, "0")}</span></div>
     <div class="blueprint-ring" aria-hidden="true"></div>
-    <img src="${project.image}" alt="${project.imageAlt}" />
+    <img src="${project.image}" alt="${project.imageAlt}" width="640" height="1385" />
   </div>`;
 }
 
